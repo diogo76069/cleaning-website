@@ -1,11 +1,40 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+
+const pageTitle = "Cleaning Website"
 ---
 
-<Layout>
-	<Welcome />
+<Layout pageTitle={pageTitle}>
+      <!-- Hero -->
+    <section class="bg-white py-24">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+        <div>
+        <h1 class="text-5xl font-bold text-gray-900 mb-6">
+            Professional Cleaning Services
+        </h1>
+        <p class="text-lg text-gray-600 mb-8">
+            Reliable residential and commercial cleaning in your area.
+        </p>
+        <a
+            href="/contact"
+            class="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg font-medium"
+        >
+            Get a Free Quote
+        </a>
+        </div>
+
+        <div class="h-80 bg-gray-100 rounded-xl"></div>
+    </div>
+    </section>
+
+    <!-- Trust -->
+    <section class="py-12 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <p>✔ Fully Insured</p>
+        <p>✔ Eco-Friendly</p>
+        <p>✔ On-Time</p>
+        <p>✔ Trusted Local</p>
+    </div>
+    </section>
 </Layout>
