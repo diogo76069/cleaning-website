@@ -1,13 +1,15 @@
 ---
 import Contacts from "./Contacts.astro"
 import Social from "./Social.astro"
+import Legal from "./Legal.astro"
+import Copyright from "./Copyright.astro"
 ---
 
 <footer class="bg-gray-50 border-t border-gray-200 py-12">
   <div class="max-w-7xl mx-auto px-6 grid gap-10 md:grid-cols-3 md:gap-8">
     
     <!-- Company + Socials -->
-    <div>
+    <div class="text-center md:text-left">
         <h2 class="text-xl font-semibold text-gray-900 mb-2">CleanCo</h2>
 
         <Social />
@@ -16,27 +18,10 @@ import Social from "./Social.astro"
     <!-- Contact us -->
     <Contacts />
 
-    <!-- Optional tagline / extra info -->
-    <div>
-      <h3 class="text-lg font-semibold text-gray-900 mb-2">Legal</h3>
-
-      <ul class="space-y-1 text-gray-600">
-        <li>
-          <a href="/imprint" class="hover:underline">
-            Imprint
-          </a>
-        </li>
-        <li>
-          <a href="/privacy-policy" class="hover:underline">
-            Privacy Policy
-          </a>
-        </li>
-      </ul>
-    </div>
+    <!-- Legal -->
+    <Legal />
   </div>
 
   <!-- Bottom copyright -->
-  <div class="mt-12 border-t border-gray-200 pt-6 text-center text-gray-500 text-sm">
-    &copy; {new Date().getFullYear()} CleanCo. All rights reserved.
-  </div>
+  <Copyright />
 </footer>
