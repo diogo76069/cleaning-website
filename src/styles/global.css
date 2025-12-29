@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+/* Prevent body scrolling when menu is open */
+body.menu-open {
+  overflow: hidden;
+}
+
+
