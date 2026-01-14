@@ -1,6 +1,6 @@
 ---
-import DesktopNav from "./DesktopNav.astro"
-import MobileNav from "./MobileNav.astro"
+import DesktopNav from "./DesktopNav.astro";
+import MobileNav from "./MobileNav.astro";
 ---
 
 <!-- Desktop Navigation -->
@@ -10,13 +10,18 @@ import MobileNav from "./MobileNav.astro"
 <button
   id="mobile-menu-button"
   class="md:hidden flex flex-col justify-between items-center w-6 h-6 relative z-50"
-  aria-label="Toggle menu"
->
-  <span class="block h-0.5 w-5 bg-gray-900 transition-transform duration-300 origin-center"></span>
-  <span class="block h-0.5 w-5 bg-gray-900 transition-opacity duration-300"></span>
-  <span class="block h-0.5 w-5 bg-gray-900 transition-transform duration-300 origin-center"></span>
+  aria-label="Open menu"
+  aria-expanded="false"
+  aria-controls="mobile-menu-panel">
+  <span
+    class="block h-0.5 w-5 bg-gray-900 transition-transform duration-300 origin-center"
+  ></span>
+  <span class="block h-0.5 w-5 bg-gray-900 transition-opacity duration-300"
+  ></span>
+  <span
+    class="block h-0.5 w-5 bg-gray-900 transition-transform duration-300 origin-center"
+  ></span>
 </button>
-
 
 <!-- Mobile Navigation -->
 <MobileNav />
