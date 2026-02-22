@@ -1,18 +1,17 @@
 ---
-import Contacts from "./Contacts.astro"
-import Social from "./Social.astro"
-import Legal from "./Legal.astro"
-import Copyright from "./Copyright.astro"
+import Contacts from "./Contacts.astro";
+import Social from "./Social.astro";
+import Legal from "./Legal.astro";
+import Copyright from "./Copyright.astro";
 ---
 
-<footer class="bg-gray-50 border-t border-gray-200 py-12">
+<footer class="bg-gray-50 border-gray-200 py-12">
   <div class="max-w-7xl mx-auto px-6 grid gap-10 md:grid-cols-3 md:gap-8">
-    
     <!-- Company + Socials -->
-    <div class="text-center md:text-left">
-        <h2 class="text-xl font-semibold text-gray-900 mb-2">CleanCo</h2>
+    <div class="flex flex-col items-center">
+      <h2 class="text-xl font-semibold text-gray-900 mb-2">CleanCo</h2>
 
-        <Social />
+      <Social />
     </div>
 
     <!-- Contact us -->

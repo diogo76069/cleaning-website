@@ -1,0 +1,78 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+
+const pageTitle = "Our Services";
+---
+
+<Layout pageTitle={pageTitle}>
+  <section class="bg-white py-24 max-w-6xl mx-auto px-6">
+    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+      Our Services
+    </h1>
+    <p class="text-lg text-gray-600 max-w-2xl">
+      We provide reliable, high-quality cleaning solutions tailored to your
+      needs.
+    </p>
+  </section>
+
+  <!-- Services Grid -->
+  <section class="max-w-6xl mx-auto px-6">
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <!-- Service Cards -->
+      <ServiceCard
+        title="Residential Cleaning"
+        description="Professional cleaning services for apartments and houses to keep your home spotless."
+      />
+      <ServiceCard
+        title="Office Cleaning"
+        description="Maintain a clean and productive workspace with our scheduled office cleaning solutions."
+      />
+      <ServiceCard
+        title="Deep Cleaning"
+        description="Detailed and thorough cleaning for kitchens, bathrooms, and high-traffic areas."
+      />
+      <ServiceCard
+        title="Event Cleaning"
+        description="Pre- and post-event cleaning services to ensure your venue is pristine for any occasion."
+      />
+      <ServiceCard
+        title="Carpet Cleaning"
+        description="Specialized carpet cleaning to remove stains, dirt, and allergens, leaving your carpets fresh."
+      />
+      <ServiceCard
+        title="Window Cleaning"
+        description="Streak-free window cleaning for a clearer view and brighter space."
+      />
+    </div>
+
+    <p class="text-lg text-gray-600 mt-12">
+      Is your service not listed? Contact us for a custom quote or to discuss
+      your specific cleaning needs.
+    </p>
+
+    <!-- Call to Action -->
+    <section class="mt-20 mb-20 bg-gray-50 py-16 max-w-6xl">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">
+          Ready to Book a Service?
+        </h2>
+        <a
+          href="/contact"
+          class="relative inline-block overflow-hidden px-8 py-5 font-semibold
+            text-white bg-blue-100 rounded-lg group max-w-max text-center">
+          <span
+            class="absolute inset-0 bg-blue-700 translate-x-0
+                group-hover:translate-x-full transition-transform duration-500 ease-in-out"
+          ></span>
+
+          <span
+            class="relative z-10 group-hover:text-blue-700
+                transition-colors duration-500">
+            Make an Appointment
+          </span>
+        </a>
+      </div>
+    </section>
+  </section>
+</Layout>

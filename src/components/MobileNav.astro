@@ -30,10 +30,10 @@
   const menu = document.getElementById("mobile-menu") as HTMLElement;
   const panel = document.getElementById("mobile-menu-panel") as HTMLElement;
   const openButton = document.getElementById(
-    "mobile-menu-button"
+    "mobile-menu-button",
   ) as HTMLElement;
   const backdrop = document.getElementById(
-    "mobile-menu-backdrop"
+    "mobile-menu-backdrop",
   ) as HTMLElement;
 
   let lastFocusedElement = null;
@@ -70,6 +70,8 @@
     openButton.setAttribute("aria-expanded", "false");
     openButton.setAttribute("aria-label", "Open menu");
 
+    openButton?.focus();
+
     setTimeout(() => {
       menu?.classList.add("hidden");
     }, 300);
@@ -77,20 +79,23 @@
 
   function getFocusableElements(container: HTMLElement): HTMLElement[] {
     const elements = container.querySelectorAll<HTMLElement>(
-      'a[href], button, textarea, input, select, [tabindex]:not([tabindex="-1"])'
+      'a[href], button, textarea, input, select, [tabindex]:not([tabindex="-1"])',
     );
     return Array.from(elements);
   }
 
   function handleKeydown(e: KeyboardEvent) {
-    if (e.key === "Escape") {
-      closeMenu();
-      return;
-    }
+    if (!panel || !panel.classList.contains("menu-open"))
+      if (e.key === "Escape") {
+        closeMenu();
+        return;
+      }
 
     if (e.key !== "Tab") return;
 
     const focusables = getFocusableElements(panel);
+    if (focusables.length === 0) return;
+
     const first = focusables[0];
     const last = focusables[focusables.length - 1];
 

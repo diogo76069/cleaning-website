@@ -1,0 +1,61 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const pageTitle = "About Us";
+---
+
+<Layout pageTitle={pageTitle}>
+  <section class="py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="mb-20 max-w-2xl text-center mx-auto">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          About Us
+        </h1>
+      </div>
+      <div class="grid gap-16 md:grid-cols-2 items-start">
+        <!-- Left: About Text -->
+        <div>
+          <h1 class="text-3xl md:text-3xl font-bold text-gray-900 mb-6">
+            A Cleaning Company You Can Trust
+          </h1>
+
+          <p class="text-gray-600 mb-6 leading-relaxed">
+            We are a professional cleaning company dedicated to providing
+            reliable and high-quality services for homes and businesses. Our
+            goal is simple: deliver consistent results you can trust.
+          </p>
+
+          <p class="text-gray-600 leading-relaxed">
+            With attention to detail and a commitment to customer satisfaction,
+            we make sure every space we clean feels fresh, hygienic, and
+            welcoming.
+          </p>
+        </div>
+
+        <!-- Right: Trust Card -->
+        <div class="p-10 bg-gray-50 rounded-xl border border-gray-200">
+          <h2 class="text-2xl font-semibold text-gray-900 mb-8">
+            Our Principles
+          </h2>
+
+          <ul class="space-y-6 text-gray-700">
+            <li>
+              <strong>Reliability</strong><br />
+              We show up on time and deliver consistent results.
+            </li>
+
+            <li>
+              <strong>Quality</strong><br />
+              Attention to detail in every service we provide.
+            </li>
+
+            <li>
+              <strong>Trust</strong><br />
+              Professional, respectful, and fully committed to customer satisfaction.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

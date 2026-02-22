@@ -12,7 +12,7 @@ body.menu-open {
 }
 
 /* Navbar Links */
-nav a {
+.dt-nav-a {
   position: relative;
   padding: 0.25rem 0;
   font-weight: 600;
@@ -21,23 +21,24 @@ nav a {
   transition: color 200ms ease;
 }
 
-nav a::after {
+.dt-nav-a::after {
   content: "";
   position: absolute;
   left: 50%;
   bottom: 0;
   width: 0;
-  height: 2.5px;
+  height: 3px;
+  border-radius: 1.5px;
   background-color: rgb(37 99 235); /* blue-600 */
   transition: all 300ms ease;
 }
 
-nav a:hover {
+.dt-nav-a:hover {
   color: rgb(17 24 39); /* gray-900 */
 }
 
-nav a:hover::after,
-nav a:focus-visible::after {
+.dt-nav-a:hover::after,
+.dt-nav-a:focus-visible::after {
   left: 0;
   width: 100%;
 }

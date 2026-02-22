@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import ServiceCard from "../components/ServiceCard.astro";
 
 const pageTitle = "Cleaning Website";
 ---
@@ -7,7 +8,7 @@ const pageTitle = "Cleaning Website";
 <Layout pageTitle={pageTitle}>
   <!-- Hero -->
   <section class="bg-white py-24 border-b border-gray-200">
-    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
       <div>
         <h1 class="text-5xl font-bold text-gray-900 mb-6">
           Professional Cleaning Services
@@ -37,15 +38,64 @@ const pageTitle = "Cleaning Website";
       <div class="h-80 bg-gray-100 rounded-xl"></div>
     </div>
   </section>
+  <section class="py-24 bg-gray-50 border-b border-gray-200">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+        About us
+      </h2>
 
-  <!-- Trust -->
-  <section class="py-12 bg-gray-50">
-    <div
-      class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-      <p>✔ Fully Insured</p>
-      <p>✔ Eco-Friendly</p>
-      <p>✔ On-Time</p>
-      <p>✔ Trusted Local</p>
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed">
+        We are committed to delivering consistent, high-quality cleaning
+        services for homes and businesses. Our focus is reliability, attention
+        to detail, and customer satisfaction.
+      </p>
+
+      <a
+        href="/about"
+        class="inline-block font-semibold text-blue-600 hover:text-blue-700 transition-all
+        duration-300">
+        Learn more about us →
+      </a>
+    </div>
+  </section>
+  <section class="py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <!-- Section Header -->
+      <div class="mb-16 max-w-2xl">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Our Services
+        </h2>
+        <p class="text-gray-600">
+          Professional cleaning solutions tailored to your needs.
+        </p>
+      </div>
+
+      <!-- Grid -->
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 mb-12">
+        <ServiceCard
+          title="Residential Cleaning"
+          description="Expert cleaning for apartments and houses to keep your home spotless."
+        />
+
+        <ServiceCard
+          title="Office Cleaning"
+          description="Maintain a clean and productive workspace with our scheduled office cleaning solutions."
+        />
+
+        <ServiceCard
+          title="Deep Cleaning"
+          description="Detailed and thorough cleaning for kitchens, bathrooms, and high-traffic areas."
+        />
+      </div>
+
+      <!-- Single CTA -->
+      <div class="text-center mt-12">
+        <a
+          href="/about"
+          class="inline-block font-semibold text-blue-600 hover:text-blue-700 transition-colors">
+          More info →
+        </a>
+      </div>
     </div>
   </section>
 </Layout>
