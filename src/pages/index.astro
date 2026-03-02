@@ -1,6 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ServiceCard from "../components/ServiceCard.astro";
+import TrustCard from "../components/TrustCard.astro";
+import Icon1 from "../assets/Icon1.webp";
+import Icon2 from "../assets/Icon2.webp";
+import Icon3 from "../assets/Icon3.webp";
+import Icon4 from "../assets/Icon4.webp";
 
 const pageTitle = "Cleaning Website";
 ---
@@ -10,25 +15,23 @@ const pageTitle = "Cleaning Website";
   <section class="bg-white py-24 border-b border-gray-200">
     <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
       <div>
-        <h1 class="text-5xl font-bold text-gray-900 mb-6">
-          Wir bringen Glanz in Ihre Räume
-        </h1>
+        <h1 class="text-5xl font-bold mb-6">Wir bringen Glanz in Ihre Räume</h1>
         <p class="text-lg text-gray-600 mb-8">
           Reinigungsservice für Privat- und Gewerbekunden in Worms und Umgebung
         </p>
-        <div class="flex justify-center md:justify-start">
+        <div class="flex justify-center">
           <a
             href="/contact"
-            class="relative inline-block overflow-hidden px-8 py-5 font-semibold
-         text-white bg-blue-100 rounded-lg group max-w-max text-center">
+            class="relative inline-block overflow-hidden p-6 font-semibold
+            text-white bg-blue-100 rounded-lg group w-sm text-center">
             <span
-              class="absolute inset-0 bg-blue-700 translate-x-0
-           group-hover:translate-x-full transition-transform duration-500 ease-in-out"
+              class="absolute inset-0 bg-[#004e7a] translate-x-0
+                group-hover:translate-x-full transition-transform duration-500 ease-in-out"
             ></span>
 
             <span
-              class="relative z-10 group-hover:text-blue-700
-           transition-colors duration-500">
+              class="relative z-10 group-hover:text-[#004e7a]
+                transition-colors duration-500 text-xl">
               Jetzt anfragen
             </span>
           </a>
@@ -40,32 +43,42 @@ const pageTitle = "Cleaning Website";
   </section>
   <section class="py-24 bg-gray-50 border-b border-gray-200">
     <div class="max-w-5xl mx-auto px-6 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-        Über uns
-      </h2>
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">Über uns</h2>
 
       <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-10 leading-relaxed">
-        Sauberkeit ist unsere Leidenschaft. Mit maßgeschneiderten Reinigungslösungen für Büros, Treppenhäuser, Praxen, Gewerbeobjekte sowie
-        Privathaushalte garantieren wir höchste Qualität und Sorgfalt. Ob Unternehmen oder Privatkunde - wir arbeiten gründlich und zuverlässig.
+        Sauberkeit ist unsere Leidenschaft. Mit maßgeschneiderten
+        Reinigungslösungen für Büros, Treppenhäuser, Praxen, Gewerbeobjekte
+        sowie Privathaushalte garantieren wir höchste Qualität und Sorgfalt. Ob
+        Unternehmen oder Privatkunde - wir arbeiten gründlich und zuverlässig.
       </p>
 
       <a
         href="/about"
-        class="inline-block font-semibold text-blue-600 hover:text-blue-700 transition-all
-        duration-300">
-        Weitere Informationen →
+        class="group relative flex items-center
+          justify-center overflow-hidden px-6 py-3
+          text-blue-600 font-semibold transition-all
+          duration-300 hover:text-blue-700">
+        <span class="transition-all duration-300
+          group-hover:mr-2"
+          >Weitere Informationen</span
+        >
+        <span
+          class="transform -translate-x-3 opacity-0
+        transition-all duration-300 group-hover:translate-x-0
+        group-hover:opacity-100"
+          >→</span
+        >
       </a>
     </div>
   </section>
-  <section class="py-24 bg-white">
+  <section class="py-24 bg-white border-b border-gray-200">
     <div class="max-w-6xl mx-auto px-6">
       <!-- Section Header -->
       <div class="mb-16 max-w-2xl">
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-          Unsere Leistungen
-        </h2>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Unsere Leistungen</h2>
         <p class="text-gray-600">
-          Wir bieten ein breites Spektrum an Reinigungsdienstleistungen für unterschiedliche Anforderungen.
+          Wir bieten ein breites Spektrum an Reinigungsdienstleistungen für
+          unterschiedliche Anforderungen.
         </p>
       </div>
 
@@ -105,10 +118,58 @@ const pageTitle = "Cleaning Website";
       <!-- Single CTA -->
       <div class="text-center mt-12">
         <a
-          href="/services"
-          class="inline-block font-semibold text-blue-600 hover:text-blue-700 transition-colors">
-          Weitere Informationen →
+          href="/about"
+          class="group relative flex items-center
+          justify-center overflow-hidden px-6 py-3
+          text-blue-600 font-semibold transition-all
+          duration-300 hover:text-blue-700">
+          <span class="transition-all duration-300
+          group-hover:mr-2"
+            >Weitere Informationen</span
+          >
+          <span
+            class="transform -translate-x-3 opacity-0
+        transition-all duration-300 group-hover:translate-x-0
+        group-hover:opacity-100"
+            >→</span
+          >
         </a>
+      </div>
+    </div>
+  </section>
+  <section class="py-24 bg-white">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2">
+      <div>
+        <h1 class="text-3xl md:text-3xl font-bold mb-8">
+          Was uns als Reinigungsunternehmen auszeichnet
+        </h1>
+        <p class="text-gray-600 text-lg">
+          Im Mittelpunkt unserer Arbeit stehen Ihre Anforderungen und
+          Erwartungen. Wir legen großen Wert auf eine zuverlässige Ausführung,
+          transparente Abläufe und eine partnerschaftliche Zusammenarbeit.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-x-6 gap-y-8">
+        <TrustCard
+          title="Vertrauen"
+          description="Transparenter Umgang mit unseren Kunden"
+          image={Icon1}
+        />
+        <TrustCard
+          title="Qualität"
+          description="Gründliche und sorgfältige Reinigung"
+          image={Icon2}
+        />
+        <TrustCard
+          title="Zuverlässigkeit"
+          description="Pünktliche und planbare Reinigungstermine"
+          image={Icon3}
+        />
+        <TrustCard
+          title="Kundennähe"
+          description="Persönliche Betreuung und Kommunikation"
+          image={Icon4}
+        />
       </div>
     </div>
   </section>
