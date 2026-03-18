@@ -1,9 +1,111 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-const pageTitle = "Contact us";
+const pageTitle = "Kontaktieren Sie uns";
 ---
 
 <Layout pageTitle={pageTitle}>
-  <h1></h1>
+  <section class="bg-white max-w-6xl py-24 mx-auto px-6">
+    <div class="flex flex-col items-center mb-12">
+      <form
+        action="/api/contact"
+        method="POST"
+        class="space-y-6 max-w-2xl w-full">
+        <!-- Name -->
+        <div>
+          <label for="name" class="block text-sm font-medium text-gray-700">
+            Name
+          </label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            required
+            class="mt-1 w-full rounded-lg border border-gray-300 px-4 py-2
+             focus:border-blue-600 focus:ring-1 focus:ring-blue-600"
+          />
+        </div>
+
+        <!-- Email -->
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-700">
+            Email
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            class="mt-1 w-full rounded-lg border border-gray-300 px-4 py-2
+             focus:border-blue-600 focus:ring-1 focus:ring-blue-600"
+          />
+        </div>
+
+        <!-- Message -->
+        <div>
+          <label for="message" class="block text-sm font-medium text-gray-700">
+            Ihre Nachricht
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            required
+            class="mt-1 w-full rounded-lg border border-gray-300 px-4 py-2
+             focus:border-blue-600 focus:ring-1 focus:ring-blue-600"
+          ></textarea>
+        </div>
+
+        <label
+          class="flex items-start gap-3 cursor-pointer text-sm text-gray-600">
+          <!-- Hidden checkbox -->
+          <input
+            type="checkbox"
+            class="appearance-none w-5 h-5 bg-white border-2 rounded border-[#004e7a]"
+            required
+          />
+          />
+
+          <!-- Custom box -->
+          <div
+            class="w-5 h-5 border border-gray-300 rounded
+           flex items-center justify-center
+           transition
+           peer-checked:bg-blue-600
+           peer-checked:border-blue-600">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              class="w-4 h-4 text-white hidden peer-checked:block">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m4.5 12.75 6 6 9-13.5"></path>
+            </svg>
+          </div>
+
+          <span>
+            I agree that my data will be processed according to the
+            <a
+              href="/privacy"
+              class="text-blue-600 underline hover:text-blue-700">
+              privacy policy
+            </a>.
+          </span>
+        </label>
+
+        <!-- Submit -->
+        <button
+          type="submit"
+          class="px-8 py-3 rounded-lg font-semibold
+           text-white bg-blue-600 hover:bg-blue-700
+           transition-colors">
+          Send Message
+        </button>
+      </form>
+    </div>
+  </section>
 </Layout>
