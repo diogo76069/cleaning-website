@@ -1,0 +1,162 @@
+---
+import ServiceCard from "./ServiceCard.astro";
+
+const services = [
+  {
+    title: "Gebäudereinigung & Büroreinigung",
+    description:
+      "Wir sorgen für saubere, hygienische und gepflegte Arbeitsumgebungen, damit sich Mitarbeiter und Kunden gleichermaßen wohlfühlen.",
+  },
+  {
+    title: "Treppen- & Treppenhausreinigung",
+    description:
+      "Mit regelmäßiger und gründlicher Reinigung gewährleisten wir einen gepflegten ersten Eindruck vom Eingangsbereich bis ins oberste Stockwerk.",
+  },
+  {
+    title: "Praxisreinigung",
+    description:
+      "Wir reinigen Praxen nach höchsten Hygiene- und Sauberkeitsstandards für ein sicheres Umfeld für Patienten und Personal.",
+  },
+  {
+    title: "Privathaushaltsreinigung",
+    description:
+      "Wir sorgen für ein sauberes und gepflegtes Zuhause - zuverlässig, gründlich und ganz nach Ihren individuellen Wünschen.",
+  },
+  {
+    title: "Bauendreinigung",
+    description:
+      "Nach Bau- oder Renovierungsarbeiten sorgen wir mit einer gründlichen Endreinigung für saubere und bezugsfertige Räumlichkeiten.",
+  },
+  {
+    title: "Glasreinigung (innen)",
+    description:
+      "Wir reinigen Fenster und Glasflächen im Innenbereich streifenfrei und sorgen für klare Sicht und einen gepflegten Gesamteindruck.",
+  },
+];
+
+const loopedServices = [
+  services[services.length - 1],
+  ...services,
+  services[0],
+];
+---
+
+<div class="overflow-hidden">
+  <div id="services-track" class="flex gap-6 will-change-transform">
+    {
+      loopedServices.map((service) => (
+        <div class="service-slide shrink-0 basis-full md:basis-[calc((100%-1.5rem)/2)] lg:basis-[calc((100%-3rem)/3)]">
+          <ServiceCard
+            title={service.title}
+            description={service.description}
+          />
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<div class="mt-8 flex items-center justify-center gap-4">
+  <button
+    id="services-prev"
+    type="button"
+    aria-label="Vorheriger Service"
+    class="inline-flex h-12 w-12 items-center justify-center rounded-xl border border-[#004e7a]
+    text-[#004e7a] transition hover:bg-[#004e7a] hover:text-blue-100">
+    ←
+  </button>
+
+  <button
+    id="services-next"
+    type="button"
+    aria-label="Nächster Service"
+    class="inline-flex h-12 w-12 items-center justify-center rounded-xl border border-[#004e7a]
+    text-[#004e7a] transition hover:bg-[#004e7a] hover:text-blue-100">
+    →
+  </button>
+</div>
+
+<script>
+  function initCarousel() {
+    const track = document.getElementById("services-track");
+    const prevBtn = document.getElementById("services-prev");
+    const nextBtn = document.getElementById("services-next");
+
+    if (!track || !prevBtn || !nextBtn) return;
+    const slides = Array.from(track.children);
+    const realSlidesCount = slides.length - 2;
+
+    let currentIndex = 1;
+    let isAnimating = false;
+
+    function getGap() {
+      if (!track) return 0;
+      const styles = window.getComputedStyle(track);
+      return parseFloat(styles.gap || styles.columnGap || "0");
+    }
+
+    function getSlidesPerView() {
+      if (window.innerWidth >= 1024) return 3;
+      if (window.innerWidth >= 768) return 2;
+      return 1;
+    }
+
+    function getSlideWidth() {
+      const firstSlide = slides[0];
+      return firstSlide.getBoundingClientRect().width;
+    }
+
+    function updateCarousel(animated = true) {
+      const slideWidth = getSlideWidth();
+      const gap = getGap();
+      const step = slideWidth + gap;
+      const slidesPerView = getSlidesPerView();
+
+      const centerOffset = (slidesPerView - 1) / 2;
+      const translateX = -(currentIndex - centerOffset) * step;
+
+      if (!track) return;
+
+      track.style.transition = animated ? "transform 450ms ease" : "none";
+      track.style.transform = `translateX(${translateX}px)`;
+    }
+
+    function goToNext() {
+      if (isAnimating) return;
+      isAnimating = true;
+      currentIndex += 1;
+      updateCarousel(true);
+    }
+
+    function goToPrev() {
+      if (isAnimating) return;
+      isAnimating = true;
+      currentIndex -= 1;
+      updateCarousel(true);
+    }
+
+    nextBtn.addEventListener("click", goToNext);
+    prevBtn.addEventListener("click", goToPrev);
+
+    track.addEventListener("transitionend", () => {
+      if (currentIndex === realSlidesCount + 1) {
+        currentIndex = 1;
+        updateCarousel(false);
+      } else if (currentIndex === 0) {
+        currentIndex = realSlidesCount;
+        updateCarousel(false);
+      }
+
+      isAnimating = false;
+    });
+
+    window.addEventListener("resize", () => {
+      updateCarousel(false);
+    });
+
+    updateCarousel(false);
+  }
+
+  document.addEventListener("DOMContentLoaded", initCarousel);
+  initCarousel();
+</script>

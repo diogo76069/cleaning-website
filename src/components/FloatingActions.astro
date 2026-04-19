@@ -1,10 +1,11 @@
 ---
-
+const { showAfterScroll } = Astro.props;
 ---
 
 <div
   id="floating-actions"
-  class="invisible pointer-events-none flex-col gap-4 fixed right-0 top-1/2 z-50 transition-opacity duration-300 opacity-0">
+  class="invisible pointer-events-none flex-col gap-4 fixed right-0 bottom-1/2 z-50 transition-opacity duration-300 opacity-0"
+  data-prop={showAfterScroll}>
   <div class="flex flex-col gap-4">
     <!-- Phone -->
     <a
@@ -18,7 +19,7 @@
           viewBox="0 0 24 24"
           stroke-width="2"
           stroke="currentColor"
-          class="size-8">
+          class="size-6">
           <path
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -41,7 +42,7 @@
           viewBox="0 0 24 24"
           stroke-width="2"
           stroke="currentColor"
-          class="size-8">
+          class="size-6">
           <path
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -53,15 +54,37 @@
     </a>
   </div>
 </div>
+<!-- Scroll Up Button -->
+<a
+  id="scroll-up-button"
+  href="#"
+  class="invisible pointer-events-none bg-white text-[#004e7a] p-4 transition-all duration-900
+  rounded-full fixed right-0 bottom-4 z-50 flex items-center border border-[#004e7a] translate-[-5px]">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke-width="2"
+    stroke="currentColor"
+    class="size-6">
+    <path
+      fill-rule="evenodd"
+      d="M11.47 7.72a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 1 1-1.06 1.06L12 9.31l-6.97 6.97a.75.75 0 0 1-1.06-1.06l7.5-7.5Z"
+      clip-rule="evenodd"></path>
+  </svg>
+</a>
 
 <script>
-  // Show after scrolling ~200px
   const actions = document.getElementById("floating-actions");
+  const scrollUpButton = document.getElementById("scroll-up-button");
+  const threshold = Number(actions?.dataset.prop ?? 0);
+
+  const shouldShowActions = () => threshold <= 0 || window.scrollY > threshold;
 
   const updateActions = () => {
     if (!actions) return;
 
-    if (window.scrollY > 200) {
+    if (shouldShowActions()) {
       actions.classList.remove(
         "invisible",
         "pointer-events-none",
@@ -73,12 +96,44 @@
       actions.classList.remove("opacity-100");
       actions.classList.add("opacity-0");
       setTimeout(() => {
-        if (window.scrollY < 200)
+        if (window.scrollY < threshold) {
           actions.classList.add("invisible", "pointer-events-none");
+        }
       }, 300);
     }
   };
 
-  window.addEventListener("scroll", updateActions);
+  const updateScrollUpButton = () => {
+    if (!scrollUpButton) return;
+
+    if (window.scrollY > 300) {
+      scrollUpButton.classList.remove(
+        "invisible",
+        "pointer-events-none",
+        "opacity-0",
+      );
+      scrollUpButton.classList.add("opacity-100");
+    } else {
+      scrollUpButton.classList.remove("opacity-100");
+      scrollUpButton.classList.add("opacity-0");
+      setTimeout(() => {
+        if (window.scrollY < 300) {
+          scrollUpButton.classList.add("invisible", "pointer-events-none");
+        }
+      }, 300);
+    }
+  };
+
+  scrollUpButton?.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  window.addEventListener("scroll", () => {
+    updateActions();
+    updateScrollUpButton();
+  });
+
   updateActions();
+  updateScrollUpButton();
 </script>

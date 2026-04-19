@@ -4,21 +4,26 @@ import logoIMG from "../assets/HeaderLogo.png";
 import Navigation from "./Navigation.astro";
 ---
 
-<header class="bg-white border-b border-gray-200 sticky top-0 z-50">
+<header
+  id="header"
+  class="bg-white border-b border-gray-200 sticky top-0 z-50 transition-all duration-300">
   <a
     href="#main-content"
     class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-white text-gray-900 px-4 py-2 rounded">
     Skip to main content
   </a>
 
-  <div class="max-w-6xl mx-auto h-30 flex items-center justify-between">
+  <div
+    id="header-content"
+    class="max-w-6xl mx-auto h-30 flex items-center justify-between transition-all duration-300">
     <!-- Logo / Brand -->
     <a href="/" class="flex items-center">
       <Image
+        id="header-logo"
         src={logoIMG}
         alt="K&H Gebäudereinigung Logo"
         width={265}
-        height={60}
+        class="transition-all duration-300"
       />
     </a>
 
@@ -26,3 +31,37 @@ import Navigation from "./Navigation.astro";
     <Navigation />
   </div>
 </header>
+
+<script>
+  const header = document.getElementById("header");
+  const headerContent = document.getElementById("header-content");
+  const headerLogo = document.getElementById("header-logo");
+
+  let lastScrollY = 0;
+
+  window.addEventListener("scroll", () => {
+    const currentScrollY = window.scrollY;
+
+    if (!header || !headerContent) return;
+
+    if (currentScrollY > 50) {
+      // Scrolling down - shrink header
+      header.style.paddingTop = "0.25rem";
+      header.style.paddingBottom = "0.25rem";
+      headerContent.style.height = "5rem";
+      if (headerLogo) {
+        headerLogo.style.width = "200px";
+      }
+    } else {
+      // At top - full size
+      header.style.paddingTop = "0";
+      header.style.paddingBottom = "0";
+      headerContent.style.height = "7.5rem";
+      if (headerLogo) {
+        headerLogo.style.width = "265px";
+      }
+    }
+
+    lastScrollY = currentScrollY;
+  });
+</script>

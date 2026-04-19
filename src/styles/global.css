@@ -4,9 +4,27 @@
 body.menu-open {
   overflow: hidden;
 }
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+  @apply text-[#004e7a];
+}
+}
 
-h1, h2, h3, h4, h5, h6 {
-  color: #004e7a;
+@keyframes hero-cycle {
+  0%, 33% {
+    background-image: url('/Slideshow_1.png');
+  }
+  34%, 66% {
+    background-image: url('/Slideshow_2.png');
+  }
+  67%, 100% {
+    background-image: url('/Slideshow_3.png');
+  }
+}
+
+.hero {
+  @apply bg-cover bg-center;
+  animation: hero-cycle 15s infinite;
 }
 
 :focus-visible {
@@ -21,7 +39,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0.25rem 0;
   font-weight: 600;
   font-size: clamp(0.95rem, 1vw 1.1rem);
-  color: rgb(75 85 99); /* gray-600 */
+  color: rgb(75 85 99); 
   transition: color 200ms ease;
 }
 
@@ -33,12 +51,12 @@ h1, h2, h3, h4, h5, h6 {
   width: 0;
   height: 3px;
   border-radius: 1.5px;
-  background-color: #004e7a; /* blue-600 */
+  background-color: #004e7a;
   transition: all 300ms ease;
 }
 
 .dt-nav-a:hover {
-  color: #111827; /* gray-900 */
+  color: #004e7a;
 }
 
 .dt-nav-a:hover::after,
