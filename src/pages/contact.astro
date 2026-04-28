@@ -9,10 +9,13 @@ const pageTitle = "Kontaktieren Sie uns";
     <div class="max-w-6xl mx-auto px-6">
       <!-- Page Heading -->
       <div class="text-center mb-16">
-        <h1 class="text-3xl md:text-4xl font-bold mb-4">Contact Us</h1>
+        <h1 class="text-3xl md:text-4xl font-bold mb-4">
+          Kontaktieren Sie uns!
+        </h1>
         <p class="text-gray-600 max-w-2xl mx-auto">
-          Get in touch with us for a free quote or any questions about our
-          services. We’ll get back to you as soon as possible.
+          Kontaktieren Sie uns für ein kostenloses Angebot oder Fragen zu
+          unseren Dienstleistungen. Wir melden uns so schnell wie möglich bei
+          Ihnen.
         </p>
       </div>
 
@@ -28,7 +31,7 @@ const pageTitle = "Kontaktieren Sie uns";
             <label
               for="name"
               class="block text-sm font-semibold text-[#004e7a]">
-              Name
+              Ihr Name
             </label>
             <input
               id="name"
@@ -45,7 +48,7 @@ const pageTitle = "Kontaktieren Sie uns";
             <label
               for="email"
               class="block text-sm font-semibold text-[#004e7a]">
-              Email
+              Ihre E-Mail-Adresse
             </label>
             <input
               id="email"
@@ -62,10 +65,11 @@ const pageTitle = "Kontaktieren Sie uns";
             <label
               for="phone"
               class="block text-sm font-semibold text-[#004e7a]">
-              Phone
+              Ihre Telefonnummer
             </label>
             <input
               id="phone"
+              required
               name="phone"
               type="tel"
               class="mt-1 w-full rounded-lg border border-gray-300 px-4 py-2
@@ -78,7 +82,7 @@ const pageTitle = "Kontaktieren Sie uns";
             <label
               for="message"
               class="block text-sm font-semibold text-[#004e7a]">
-              Message
+              Ihre Nachricht an uns
             </label>
             <textarea
               id="message"
@@ -146,16 +150,16 @@ const pageTitle = "Kontaktieren Sie uns";
         <!-- Contact Info -->
         <div class="space-y-8">
           <div>
-            <h2 class="text-2xl font-semibold mb-4">Contact Information</h2>
+            <h2 class="text-2xl font-semibold mb-4">Kontaktinformationen</h2>
             <p class="text-gray-600">
-              Prefer direct contact? Reach out using the details below.
+              Sie können uns gerne per Telefon oder E-Mail kontaktieren.
             </p>
           </div>
 
           <div class="space-y-8 w-xs">
             <div
               class="bg-white p-4 rounded-2xl shadow-md transition-all duration-300 border border-gray-100
-              flex gap-8 hover:shadow-xl hover:-translate-y-1">
+              flex gap-6 hover:shadow-xl hover:-translate-y-1">
               <a
                 href="tel:+351123456789"
                 class="flex items-center text-[#004e7a]">
@@ -175,17 +179,23 @@ const pageTitle = "Kontaktieren Sie uns";
               </a>
               <div class="items-center">
                 <span class="text-lg font-semibold text-[#004e7a]"
-                  >Our phone number</span
+                  >Unsere Telefonnummer</span
                 >
 
-                <p class="text-sm opacity-80 mt-1">+351 123 456 789</p>
+                <div>
+                  <a
+                    href="tel:+351123456789"
+                    class="text opacity-80 mt-1 hover:underline">
+                    +351 123 456 789
+                  </a>
+                </div>
               </div>
             </div>
             <div
               class="bg-white p-4 rounded-2xl shadow-md transition-all duration-300 border border-gray-100
-              flex gap-8 hover:shadow-xl hover:-translate-y-1">
+              flex gap-6 hover:shadow-xl hover:-translate-y-1">
               <a
-                href="mailto:info@k&h.de"
+                href="mailto:info@kh-reinigungsservice.de"
                 class="flex items-center text-[#004e7a]">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -203,10 +213,16 @@ const pageTitle = "Kontaktieren Sie uns";
               </a>
               <div class="items-center">
                 <span class="text-lg font-semibold text-[#004e7a]"
-                  >Our email</span
+                  >Unsere E-Mail-Adresse</span
                 >
 
-                <p class="text-sm opacity-80 mt-1">info@k&h.de</p>
+                <div>
+                  <a
+                    href="mailto:info@kh-reinigungsservice.de"
+                    class="text opacity-80 mt-1 hover:underline">
+                    info@kh-reinigungsservice.de
+                  </a>
+                </div>
               </div>
             </div>
           </div>

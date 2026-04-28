@@ -2,15 +2,54 @@
 import Layout from "../layouts/Layout.astro";
 import ServiceCard from "../components/ServiceCard.astro";
 
+import Gebaudereinigung from "../assets/services/Gebaudereinigung__Buroreinigung.png";
+import Treppen from "../assets/services/Treppen-__Treppenhausreinigung.png";
+import Praxisreinigung from "../assets/services/Praxisreinigung.png";
+import Privathaushalt from "../assets/services/Privathaushaltsreinigung.png";
+import Glasreinigung from "../assets/services/Glasreinigung.png";
+
 const pageTitle = "Unsere Leistungen";
 const floatingActionsThreshold = 0;
+
+const services = [
+  {
+    title: "Gebäudereinigung & Büroreinigung",
+    description:
+      "Eine saubere Arbeitsumgebung trägt maßgeblich zur Produktivität und zum Wohlbefinden bei. Wir übernehmen die regelmäßige Reinigung von Büroräumen, Sanitäranlagen, Küchenbereichen, Fluren und Gemeinschaftsflächen. Dabei achten wir auf gründliche Bodenreinigung, hygienische Oberflächenpflege und eine zuverlässige Ausführung nach festgelegtem Reinigungsplan.",
+    image: Gebaudereinigung,
+  },
+  {
+    title: "Treppen- & Treppenhausreinigung",
+    description:
+      "Das Treppenhaus ist die Visitenkarte eines Gebäudes. Wir reinigen Treppen, Geländer, Handläufe, Eingangsbereiche, Briefkastenanlagen und Gemeinschaftsflächen gründlich und regelmäßig. Durch feste Intervalle sorgen wir dauerhaft für einen gepflegten und einladenden Eindruck – ideal für Hausverwaltungen und Eigentümergemeinschaften.",
+    image: Treppen,
+  },
+  {
+    title: "Praxisreinigung",
+    description:
+      "In Praxen gelten besonders hohe Hygieneanforderungen. Wir reinigen Behandlungsräume, Wartebereiche, Sanitäranlagen und Empfangsbereiche sorgfältig und nach klaren Hygienestandards. Dabei verwenden wir geeignete Reinigungs- und Desinfektionsmittel, um ein sicheres Umfeld für Patienten und Personal zu gewährleisten.",
+    image: Praxisreinigung,
+  },
+  {
+    title: "Privathaushaltsreinigung",
+    description:
+      "Wir unterstützen Sie im Alltag mit einer zuverlässigen und gründlichen Reinigung Ihres Zuhauses. Ob regelmäßige Reinigung oder intensive Grundpflege – wir reinigen Böden, Bäder, Küchen, Wohnbereiche und Oberflächen sorgfältig und nach Ihren individuellen Wünschen. Diskretion und ein respektvoller Umgang mit Ihrem privaten Umfeld sind für uns selbstverständlich.",
+    image: Privathaushalt,
+  },
+  {
+    title: "Glasreinigung (innen)",
+    description:
+      "Saubere Glasflächen sorgen für mehr Licht und einen gepflegten Gesamteindruck. Wir reinigen Fenster, Glastüren und sonstige Glasflächen im Innenbereich streifenfrei und sorgfältig. Dabei achten wir auf eine schonende Reinigung der Rahmen und angrenzenden Flächen.",
+    image: Glasreinigung,
+  },
+];
 ---
 
 <Layout
   pageTitle={pageTitle}
   floatingActionsThreshold={floatingActionsThreshold}>
   <section class="bg-white max-w-6xl py-24 mx-auto px-6">
-    <div class="mb-12">
+    <div class="mb-20">
       <h1 class="text-4xl md:text-5xl font-bold mb-6">Unsere Leistungen</h1>
       <p class="text-lg text-gray-600 font-semibold max-w-2xl">
         Wir bieten ein breites Spektrum an Reinigungsdienstleistungen für
@@ -19,39 +58,22 @@ const floatingActionsThreshold = 0;
     </div>
 
     <!-- Services Grid -->
-    <div class="grid gap-x-8 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
+    <div class="grid gap-x-8 gap-y-12 md:grid-cols-2 lg:grid-cols-2">
       <!-- Service Cards -->
-      <ServiceCard
-        title="Gebäudereinigung & Büroreinigung"
-        description="Eine saubere Arbeitsumgebung trägt maßgeblich zur Produktivität und zum Wohlbefinden bei. Wir übernehmen die regelmäßige Reinigung von Büroräumen, Sanitäranlagen, Küchenbereichen, Fluren und Gemeinschaftsflächen. Dabei achten wir auf gründliche Bodenreinigung, hygienische Oberflächenpflege und eine zuverlässige Ausführung nach festgelegtem Reinigungsplan."
-      />
-      <ServiceCard
-        title="Treppen- & Treppenhausreinigung"
-        description="Das Treppenhaus ist die Visitenkarte eines Gebäudes. Wir reinigen Treppen, Geländer, Handläufe, Eingangsbereiche, Briefkastenanlagen und Gemeinschaftsflächen gründlich und regelmäßig. Durch feste Intervalle sorgen wir dauerhaft für einen gepflegten und einladenden Eindruck – ideal für Hausverwaltungen und Eigentümergemeinschaften."
-      />
-      <ServiceCard
-        title="Praxisreinigung"
-        description="In Praxen gelten besonders hohe Hygieneanforderungen. Wir reinigen Behandlungsräume, Wartebereiche, Sanitäranlagen und Empfangsbereiche sorgfältig und nach klaren Hygienestandards. Dabei verwenden wir geeignete Reinigungs- und Desinfektionsmittel, um ein sicheres Umfeld für Patienten und Personal zu gewährleisten."
-      />
-      <ServiceCard
-        title="Privathaushaltsreinigung"
-        description="Wir unterstützen Sie im Alltag mit einer zuverlässigen und gründlichen Reinigung Ihres Zuhauses. Ob regelmäßige Reinigung oder intensive Grundpflege – wir reinigen Böden, Bäder, Küchen, Wohnbereiche und Oberflächen sorgfältig und nach Ihren individuellen Wünschen. Diskretion und ein respektvoller Umgang mit Ihrem privaten Umfeld sind für uns selbstverständlich."
-      />
-      <ServiceCard
-        title="Glasreinigung (innen)"
-        description="Saubere Glasflächen sorgen für mehr Licht und einen gepflegten Gesamteindruck. Wir reinigen Fenster, Glastüren und sonstige Glasflächen im Innenbereich streifenfrei und sorgfältig. Dabei achten wir auf eine schonende Reinigung der Rahmen und angrenzenden Flächen."
-      />
+      {
+        services.map((service) => (
+          <ServiceCard
+            title={service.title}
+            description={service.description}
+            image={service.image}
+          />
+        ))
+      }
     </div>
-
-    <p
-      class="text-lg text-gray-600 font-semibold max-w-2xl text-center mx-auto mt-12">
-      Sie finden nicht was Sie suchen? Sprechen Sie uns gerne an. Wir erweitern
-      unser Angebot stetig.
-    </p>
   </section>
 
   <!-- Call to Action -->
-  <section class="mb-24 py-16 max-w-6xl mx-auto">
+  <section class="mb-24 pb-16 max-w-6xl mx-auto">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <h2 class="text-3xl font-bold mb-6">
         Sie suchen ein pflichtbewusstes Reinigungsunternehmen? Dann sind Sie bei
